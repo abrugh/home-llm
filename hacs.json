@@ -1,5 +1,5 @@
 {
-    "name": "Local LLM Conversation",    
+    "name": "Local LLM Conversation - preview", 
     "homeassistant": "2024.12.3",
     "content_in_root": false,
     "render_readme": true
