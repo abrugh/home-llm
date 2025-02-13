@@ -657,7 +657,7 @@ class ConfigFlow(BaseLlamaConversationConfigFlow, config_entries.ConfigFlow, dom
                 elif backend_type == BACKEND_TYPE_GENERIC_OPENAI and \
                     user_input.get(CONF_GENERIC_OPENAI_VALIDATE_MODEL, DEFAULT_GENERIC_OPENAI_VALIDATE_MODEL):
                      error_message, ex, possible_models = await self._async_validate_generic_openai(user_input)
-                elif backend_type = BACKEND_TYPE_AZURE_OPENAI and \
+                elif backend_type == BACKEND_TYPE_AZURE_OPENAI and \
                     user_input.get(CONF_AZURE_OPENAI_VALIDATE_MODEL, DEFAULT_AZURE_OPENAI_VALIDATE_MODEL):
                      error_message, ex, possible_models = await self._async_validate_azure_openai(user_input)
                 else:
