@@ -174,7 +174,7 @@ def STEP_INIT_DATA_SCHEMA(backend_type=None):
                     BACKEND_TYPE_TEXT_GEN_WEBUI,
                     BACKEND_TYPE_GENERIC_OPENAI,
                     BACKEND_TYPE_LLAMA_CPP_PYTHON_SERVER,
-                    BACKEND_TYPE_OLLAMA
+                    BACKEND_TYPE_OLLAMA, BACKEND_TYPE_AZURE_OPENAI
                 ],
                 translation_key=CONF_BACKEND_TYPE,
                 multiple=False,
@@ -236,6 +236,8 @@ def STEP_REMOTE_SETUP_DATA_SCHEMA(backend_type: str, *, host=None, port=None, ss
             CONF_GENERIC_OPENAI_VALIDATE_MODEL,
             default=DEFAULT_GENERIC_OPENAI_VALIDATE_MODEL
         )] = BooleanSelector(BooleanSelectorConfig())
+    elif backend_type == BACKEND_TYPE_AZURE_OPENAI:
+        default_port = "443"
 
     return vol.Schema(
         {
