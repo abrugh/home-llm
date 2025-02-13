@@ -536,12 +536,16 @@ class ConfigFlow(BaseLlamaConversationConfigFlow, config_entries.ConfigFlow, dom
                 headers["Authorization"] = f"Bearer {api_key}"
 
             session = async_get_clientsession(self.hass)
+            if api_base_path:
+                better_path = "/" + "/".join([api_base_path, "models"])  
+            else:
+                better_path = "/models"
             async with session.get(
                 format_url(
                     hostname=self.model_config[CONF_HOST],
                     port=self.model_config[CONF_PORT],
                     ssl=self.model_config[CONF_SSL],
-                    path="/" + "/".join([api_base_path, "models"])  
+                    path= better_path
                 ),
                 timeout=5, # quick timeout
                 headers=headers
