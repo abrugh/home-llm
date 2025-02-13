@@ -518,7 +518,7 @@ class ConfigFlow(BaseLlamaConversationConfigFlow, config_entries.ConfigFlow, dom
 
     async def _async_validate_azure_openai(self, user_input: dict) -> tuple:
         user_input[CONF_GENERIC_OPENAI_PATH] = user_input.get(CONF_GENERIC_OPENAI_PATH, "")
-        return await _async_validate_generic_openai(self, user_input)
+        return await self._async_validate_generic_openai(self, user_input)
 
     
     async def _async_validate_generic_openai(self, user_input: dict) -> tuple:
