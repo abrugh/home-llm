@@ -541,7 +541,7 @@ class ConfigFlow(BaseLlamaConversationConfigFlow, config_entries.ConfigFlow, dom
                     hostname=self.model_config[CONF_HOST],
                     port=self.model_config[CONF_PORT],
                     ssl=self.model_config[CONF_SSL],
-                    path="/" + "/".join(api_base_path, "models") 
+                    path="/" + "/".join([api_base_path, "models"]) 
                 ),
                 timeout=5, # quick timeout
                 headers=headers
